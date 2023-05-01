@@ -52,6 +52,14 @@ def report(limit=0, offset=0):
         json_result_list.append(json_result)
 
     return json_result_list
+def dashboard():
+    query = db.session.query(Persona)
+    query_all = query.all()
+
+    x = [x[Persona.id] for x in query_all ]
+    y = [x[Persona.age] for x in query_all]
+
+    return x,y
 
 
 if __name__ == "__main__":
